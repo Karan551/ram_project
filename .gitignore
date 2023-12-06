@@ -1,0 +1,7 @@
+**/migrations/
+**/__pycache__/*.pyc
+*.pyc
+*.pyo
+.venv
+manage.py
+* __pycache__
