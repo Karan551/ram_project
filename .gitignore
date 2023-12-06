@@ -5,3 +5,4 @@
 .venv
 manage.py
 * __pycache__
+**/__init__.py
