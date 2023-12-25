@@ -1,10 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "fitness/base.html" %}
+{% load static %}
+{% block title %}
+SignUp
+{% endblock title %}
+{% block css %}
+<style>
+    body{
+    background: url("https://cdn.pixabay.com/photo/2023/09/17/21/08/geneva-8259296_1280.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+    .input-group .form-floating input{
+        background-color: transparent;
+        outline: none;
+        border:1px solid black;
+        border-radius: 10px;
+        box-shadow: 2px 1px black;
+    }
+    .input-group i{
+        color:#fff;
+        background-color: #333;
+        box-shadow: 2px 1px black;
+    }
 
-</body>
-</html>
+</style>
+{% endblock css %}
+{% block body %}
+
+
+<div class="container my-2">
+    <h1 class="text-center">{{msg}}</h1>
+    <div class=" border border-dark border-2 rounded-4 p-3">
+        <h2 class="text-center">Login Here:-</h2>
+        <form action="/login/" method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3 one">
+                <i class="fa-solid fa-envelope input-group-text d-flex"></i>
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="Email address:"
+                           autocomplete="username" name="email" required>
+                    <label for="floatingInput">Email address:</label>
+                </div>
+            </div>
+            <div class="input-group my-2">
+                <i class="fa-solid fa-lock input-group-text d-flex"></i>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="user-password" placeholder="Password"
+                           autocomplete="current-password" name="user-password" required>
+                    <label for="user-password">Password:</label>
+                </div>
+            </div>
+            <input type="checkbox" name="check" id="check" class=""> <span class="fw-bold">Show Password</span>
+            <div class="my-2">
+                <input type="submit" value="Login" class="btn btn-success btn-lg" id="btn">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock body %}
+
+{% block js %}
+<script src="{% static 'validate.js' %}"></script>
+{% endblock js %}
