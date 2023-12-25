@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Payment Page</title>
+<script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+    <!--    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&components=buttons"></script>-->
+<!--    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=INR"></script>-->
 </head>
-<body>
 
+<body>
+    <h1>This is payment page.</h1>
+    <div class="container">
+        <div id="paypal-button-container" style="max-width:1000px;"></div>
+    </div>
+    <script>
+    paypal.Buttons({
+        style: {
+            disableMaxWidth: true,
+            layout: 'vertical',
+            color: 'gold',
+            shape: 'pill',
+            label: 'paypal'
+
+        },
+    }).render('#paypal-button-container');
+    </script>
 </body>
+
 </html>
