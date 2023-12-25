@@ -1,10 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "fitness/base.html" %}
+{% block title %}
+Fitness Point
+{% endblock title %}
+{% block feature %}active {% endblock feature %}
+{% block body %}
+<div class="container my-4">
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal text-body-emphasis">Pricing</h1>
+        <p class="fs-5 text-body-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi,
+            consequuntur cumque delectus deleniti dignissimos ea labore maiores minus nesciunt odio perspiciatis quae
+            quis recusandae repellat, reprehenderit, similique temporibus voluptatibus.
+        </p>
+    </div>
 
-</body>
-</html>
+
+    <!--         -->
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Quarterly</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">800 &#8377;<small class="text-body-secondary fw-light">/3
+                        month</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Validity : 3 months</li>
+                        <li>Help center access</li>
+                        <li>Mentor Support 24x7</li>
+                    </ul>
+                    <a class="w-100 btn btn-lg btn-outline-primary" href="/payment" >Join Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Half Yearly</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">1200 &#8377;<small class="text-body-secondary fw-light">/6
+                        month</small>
+                    </h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Validity : 6 months</li>
+                        <li>Home Service</li>
+                        <li>Help Center Access</li>
+                        <li>Mentor Support 24x7</li>
+
+                    </ul>
+                    <a href="/payment" class="w-100 btn btn-lg btn-primary">Join Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-3 text-bg-primary border-primary">
+                    <h4 class="my-0 fw-normal">Annually Plan</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">1800 &#8377;<small class="text-body-secondary fw-light">/1
+                        Year</small>
+                    </h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Validity : 1 Year</li>
+                        <li>Yoga Classes</li>
+                        <li>Home Service</li>
+                        <li>Help center access</li>
+                        <li>Mentor Support 24x7</li>
+                    </ul>
+                    <a href="/payment" class="w-100 btn btn-lg btn-primary">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  Paypal account info.-->
+<div id="paypal-button-container" style="max-width:1000px;"></div>
+
+
+{% endblock body %}
+{% block js %}
+
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&components=YOUR_COMPONENTS"></script>
+
+<script>
+
+    paypal.Buttons({
+      style: {
+        layout: 'vertical',
+        color:  'blue',
+        shape:  'rect',
+        label:  'paypal',
+        tagline:true
+      }
+    }).render('#paypal-button-container');
+
+</script>
+
+{% endblock js %}
